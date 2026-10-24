@@ -1,0 +1,233 @@
+---
+// CSS recreation of the app's "Hoy" screen (no screenshots needed).
+const tasks = [
+  { title: 'Entrenar 30 min', goal: 'Ponerme en forma', done: true },
+  { title: 'Leer 20 páginas', goal: 'Leer 24 libros', done: true },
+  { title: 'Avanzar side project', goal: 'Lanzar mi app', done: false },
+];
+---
+
+<div class="phone" aria-hidden="true">
+  <div class="notch"></div>
+  <div class="screen">
+    <p class="h">Hoy</p>
+
+    <div class="pinned">
+      <span class="tag">📌 OBJETIVO PRINCIPAL</span>
+      <strong>Lanzar mi app este mes</strong>
+      <div class="row">
+        <span class="pill">✓ Cumplido</span>
+        <span class="pill ghost">✕ No</span>
+      </div>
+    </div>
+
+    <div class="disc">
+      <span class="disc-icon">◎</span>
+      <div>
+        <strong>Desconexión</strong>
+        <small>Hoy: 2 exitosas · 0 fallidas</small>
+      </div>
+      <span class="play">▶</span>
+    </div>
+
+    <div class="progress card">
+      <div class="row between">
+        <small>Progreso del día · 2/3</small>
+        <small><b>67%</b></small>
+      </div>
+      <div class="bar"><i></i></div>
+    </div>
+
+    <p class="sub">Tareas de hoy</p>
+    {
+      tasks.map((t) => (
+        <div class:list={['task', { done: t.done }]}>
+          <span class="check">{t.done ? '✓' : ''}</span>
+          <div>
+            <strong>{t.title}</strong>
+            <small>{t.goal}</small>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .phone {
+    position: relative;
+    width: 300px;
+    height: 610px;
+    border-radius: 46px;
+    padding: 12px;
+    background: linear-gradient(160deg, #2a2a36, #0d0d14);
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+      0 50px 120px -30px rgba(124, 92, 255, 0.55),
+      0 30px 60px -30px rgba(0, 0, 0, 0.9);
+  }
+  .notch {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 24px;
+    border-radius: 20px;
+    background: #000;
+    z-index: 2;
+  }
+  .screen {
+    height: 100%;
+    border-radius: 36px;
+    background:
+      radial-gradient(120% 60% at 50% 0%, rgba(124, 92, 255, 0.22), transparent 60%),
+      var(--bg);
+    padding: 56px 16px 16px;
+    overflow: hidden;
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .h {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .sub {
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  small {
+    color: var(--text-2);
+    font-size: 10.5px;
+    display: block;
+  }
+  .row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .between {
+    justify-content: space-between;
+  }
+  .pinned {
+    background: var(--grad);
+    border-radius: 16px;
+    padding: 12px;
+    display: grid;
+    gap: 6px;
+    animation: float 6s ease-in-out infinite;
+  }
+  .pinned strong {
+    font-size: 15px;
+  }
+  .tag {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+  }
+  .pill {
+    flex: 1;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 10px;
+    padding: 4px;
+    font-size: 10.5px;
+    font-weight: 700;
+  }
+  .disc {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 10px;
+  }
+  .disc > div {
+    flex: 1;
+  }
+  .disc-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--grad);
+    font-size: 16px;
+  }
+  .play {
+    color: var(--primary-soft);
+    font-size: 18px;
+  }
+  .progress {
+    padding: 10px;
+    border-radius: 14px;
+  }
+  .bar {
+    margin-top: 6px;
+    height: 7px;
+    border-radius: 99px;
+    background: var(--surface-high);
+    overflow: hidden;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+    width: 67%;
+    background: var(--success);
+    border-radius: 99px;
+    animation: fill 2.4s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+  .task {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 9px 10px;
+  }
+  .task strong {
+    font-size: 12px;
+  }
+  .task.done strong {
+    text-decoration: line-through;
+    color: var(--text-2);
+  }
+  .check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-strong);
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    color: #06120d;
+    font-weight: 900;
+    flex: none;
+  }
+  .done .check {
+    background: var(--success);
+    border-color: var(--success);
+  }
+  @keyframes fill {
+    from {
+      width: 0;
+    }
+  }
+  @keyframes float {
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+  @media (max-width: 380px) {
+    .phone {
+      transform: scale(0.9);
+      transform-origin: top center;
+    }
+  }
+</style>

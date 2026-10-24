@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE, PLANS } from '../config';
+---
+
+<Base title="Términos y condiciones" description="Condiciones de uso y de suscripción de Xylia.">
+  <Nav />
+  <main class="legal">
+    <h1>Términos y condiciones</h1>
+    <p class="updated">Última actualización: {SITE.legalUpdated}</p>
+
+    <p>Al usar {SITE.name} aceptas estos términos. Si no estás de acuerdo, no uses la app.</p>
+
+    <h2>1. La app</h2>
+    <p>{SITE.name} es una herramienta para organizar hábitos, objetivos, proyectos y sesiones de desconexión. Se ofrece "tal cual" y puede cambiar o mejorar con el tiempo.</p>
+
+    <h2>2. Suscripciones</h2>
+    <ul>
+      {PLANS.map((p) => <li><b>{p.name}:</b> US${p.price} al mes (o su equivalente en tu moneda local mostrado por Google Play).</li>)}
+      <li><b>Prueba gratis:</b> 7 días para usuarios nuevos. Si no cancelas antes de que termine, se cobra automáticamente el plan elegido.</li>
+      <li><b>Renovación automática:</b> la suscripción se renueva cada mes hasta que la canceles.</li>
+      <li><b>Cancelación:</b> en Google Play → Pagos y suscripciones → Suscripciones. Mantienes el acceso hasta el final del periodo ya pagado.</li>
+      <li><b>Reembolsos:</b> se rigen por la política de reembolsos de Google Play.</li>
+      <li><b>Cambio de plan:</b> puedes pasar de Básico a Pro o viceversa desde la app; Google Play ajusta el cobro.</li>
+    </ul>
+
+    <h2>3. Tu cuenta</h2>
+    <p>Eres responsable de mantener segura tu contraseña y de la actividad en tu cuenta. Puedes eliminarla cuando quieras desde la app.</p>
+
+    <h2>4. Uso aceptable</h2>
+    <p>No uses la app para fines ilegales ni intentes acceder sin permiso a sistemas o datos de otros usuarios.</p>
+
+    <h2>5. Responsabilidad</h2>
+    <p>{SITE.name} es una ayuda para tu disciplina personal; no garantiza resultados concretos. En la medida que la ley lo permita, no somos responsables de daños indirectos derivados del uso de la app.</p>
+
+    <h2>6. Cambios</h2>
+    <p>Podemos actualizar estos términos. Te avisaremos de cambios importantes en la app.</p>
+
+    <h2>7. Contacto</h2>
+    <p><a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a></p>
+  </main>
+  <Footer />
+</Base>

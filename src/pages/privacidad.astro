@@ -1,0 +1,62 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+---
+
+<Base title="Política de privacidad" description="Cómo Xylia trata tus datos personales.">
+  <Nav />
+  <main class="legal">
+    <h1>Política de privacidad</h1>
+    <p class="updated">Última actualización: {SITE.legalUpdated}</p>
+
+    <p>
+      Esta política explica qué datos recoge la app {SITE.name} ("la app"), para qué los usamos y qué
+      control tienes sobre ellos. Si tienes dudas, escríbenos a
+      <a href={`mailto:${SITE.contactEmail}`}>{SITE.contactEmail}</a>.
+    </p>
+
+    <h2>1. Datos que recogemos</h2>
+    <ul>
+      <li><b>Cuenta:</b> correo electrónico, nombre (opcional) y contraseña (guardada cifrada con hash, nunca en texto plano).</li>
+      <li><b>Contenido que creas:</b> proyectos, objetivos, tareas, registros diarios y sesiones de desconexión (duración, resultado y hora).</li>
+      <li><b>Suscripción:</b> el identificador de compra (token) y el estado de tu suscripción que nos facilita Google Play. No recibimos ni guardamos los datos de tu tarjeta ni de tu método de pago; los gestiona Google.</li>
+    </ul>
+    <p>No usamos publicidad, no vendemos tus datos y no los compartimos con terceros con fines comerciales.</p>
+
+    <h2>2. Para qué usamos tus datos</h2>
+    <ul>
+      <li>Darte acceso a tu cuenta y sincronizar tu información entre sesiones.</li>
+      <li>Mostrar tus estadísticas y reportes.</li>
+      <li>Verificar con Google Play que tu suscripción está activa.</li>
+      <li>Responder a tus solicitudes de soporte.</li>
+    </ul>
+
+    <h2>3. Con quién los compartimos</h2>
+    <ul>
+      <li><b>Google Play</b>, para procesar y verificar pagos de suscripción.</li>
+      <li><b>Nuestro proveedor de servidores</b>, donde se almacena la base de datos, bajo acuerdos de confidencialidad.</li>
+    </ul>
+
+    <h2>4. Seguridad</h2>
+    <p>Los datos viajan cifrados (HTTPS) y las contraseñas se guardan con hash. Ningún sistema es 100% seguro, pero aplicamos medidas razonables para proteger tu información.</p>
+
+    <h2>5. Conservación y eliminación</h2>
+    <p>
+      Conservamos tus datos mientras tengas una cuenta. Puedes eliminar tu cuenta y todos tus datos en cualquier
+      momento desde la app (Perfil → Eliminar cuenta) o siguiendo los pasos de
+      <a href="/eliminar-cuenta">esta página</a>. El borrado es inmediato y definitivo.
+    </p>
+
+    <h2>6. Tus derechos</h2>
+    <p>Puedes pedir acceso, corrección o eliminación de tus datos escribiendo a {SITE.contactEmail}.</p>
+
+    <h2>7. Menores</h2>
+    <p>La app no está dirigida a menores de 13 años y no recogemos datos de ellos de forma consciente.</p>
+
+    <h2>8. Cambios</h2>
+    <p>Si cambiamos esta política, actualizaremos la fecha de arriba y, si el cambio es importante, te avisaremos en la app.</p>
+  </main>
+  <Footer />
+</Base>

@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+---
+
+<Base title="Eliminar cuenta" description="Cómo eliminar tu cuenta de Xylia y todos tus datos.">
+  <Nav />
+  <main class="legal">
+    <h1>Eliminar tu cuenta</h1>
+    <p class="updated">{SITE.name} · Solicitud de eliminación de cuenta y datos</p>
+
+    <h2>Desde la app (inmediato)</h2>
+    <ol>
+      <li>Abre {SITE.name} e inicia sesión.</li>
+      <li>Ve a <b>Perfil</b>.</li>
+      <li>Toca <b>Eliminar cuenta</b> y confirma.</li>
+    </ol>
+
+    <h2>Sin la app</h2>
+    <p>
+      Escríbenos a <a href={`mailto:${SITE.contactEmail}?subject=Eliminar%20cuenta`}>{SITE.contactEmail}</a>
+      desde el correo de tu cuenta con el asunto "Eliminar cuenta". La eliminamos en un máximo de 7 días.
+    </p>
+
+    <h2>Qué se elimina</h2>
+    <p>Tu cuenta, proyectos, objetivos, tareas, registros diarios, sesiones de desconexión y el registro de tu suscripción. No conservamos copias.</p>
+
+    <h2>Importante: tu suscripción</h2>
+    <p>
+      Eliminar la cuenta <b>no cancela</b> la suscripción en Google Play. Cancélala en Google Play →
+      Pagos y suscripciones → Suscripciones → {SITE.name} para que no se te cobre de nuevo.
+    </p>
+  </main>
+  <Footer />
+</Base>

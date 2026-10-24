@@ -1,0 +1,70 @@
+---
+import { SITE } from '../config';
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container inner">
+    <div class="brand">
+      <img src="/logo.png" alt="" width="28" height="28" />
+      <div>
+        <strong>{SITE.name}</strong>
+        <p>{SITE.tagline}</p>
+      </div>
+    </div>
+    <nav aria-label="Legal">
+      <a href="/privacidad">Privacidad</a>
+      <a href="/terminos">Términos</a>
+      <a href="/eliminar-cuenta">Eliminar cuenta</a>
+      <a href={`mailto:${SITE.contactEmail}`}>Contacto</a>
+    </nav>
+  </div>
+  <div class="container legal-line">
+    © {year} {SITE.company}. Google Play y el logo de Google Play son marcas de Google LLC.
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 32px;
+    background: var(--bg-elev);
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .brand img {
+    border-radius: 8px;
+  }
+  .brand p {
+    color: var(--text-3);
+    font-size: 14px;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 24px;
+  }
+  nav a {
+    color: var(--text-2);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  nav a:hover {
+    color: var(--text);
+  }
+  .legal-line {
+    margin-top: 28px;
+    color: var(--text-3);
+    font-size: 12px;
+  }
+</style>
